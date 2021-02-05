@@ -1,4 +1,4 @@
-import { useContext} from 'react';
+import { useContext } from 'react';
 import styled from 'styled-components';
 import FilterContext from '../../context/FilterContext';
 import media from '../../global/mediaQueries';
@@ -60,10 +60,11 @@ const Search: React.FC = () => {
     setName && setName(e.target.value);
 
   return (
-    <Wrapper autoComplete="off">
+    <Wrapper autoComplete="off" onSubmit={e => e.preventDefault()}>
       <Icon />
       <Input
         placeholder="Search for a country…"
+        aria-label="Search for a country…"
         type="text"
         name="search"
         value={name}
